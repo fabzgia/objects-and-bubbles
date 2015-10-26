@@ -13,7 +13,12 @@ function Bubble(){;
 this.drawBubble = function(){
 ellipse(this.x,this.y,this.bubbleSize,this.bubbleSiz);)
 }
-}//end Bubble
+
+ this.changeColor = function(){  
+     fill("orange");
+     this.drawBubble();
+ }
+ }//end Bubble
 
 function setup(){
 //create the canvas. put into a variable to assocaite with a element
@@ -30,11 +35,18 @@ cnv.parent("windows");
     
 //listen to mouse pressed with the built in p5 mousePressed method
     function mousePressed(){
-        //check that this is working
+        //check that this is working console.log(mousePressed");
         console.log("mouse Pressed");
-    }
-    //loop through myArray and check if mouse is in each Bubbble
+   //loop through myArray and check if mouse is in each Bubbble
+    var d;
     for(var i=0; i < myArray.length; i++){
-    myArray[i].x myArray[i].r
-    }
+    //myArray[i].x myArray[i].r
+        d = dist(mouseX, mouseY, myArray[i].y);
+    //check to see if the distance is less than the radius
+//ie is the mouse in the bubble
+if (d < myArray[i].r){
+    myArray[i].changeColor();//call thr color change unction
+ }
+}
+
 }//end mousePressed
